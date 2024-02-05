@@ -90,6 +90,7 @@ module "ec2_instance" {
 
   instance_type               = var.instance_type
   key_name                    = "terraform-key"
+  ami     = data.aws_ami.ubuntu.id
   monitoring                  = true
   vpc_security_group_ids      = [module.sg.security_group_id]
   subnet_id                   = module.vpc.public_subnets[0]
